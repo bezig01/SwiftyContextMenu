@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ContextMenuViewControllerDelegate: class {
+protocol ContextMenuViewControllerDelegate: AnyObject {
 
     func contextMenuViewControllerDidDismiss(_ contextMenuViewController: ContextMenuViewController)
 }

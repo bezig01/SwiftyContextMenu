@@ -5,6 +5,8 @@
 //  Created by Paul Bancarel on 28/11/2020.
 //
 
+import UIKit
+
 extension UIColor {
     
     static var defaultLabelMenuActionColor: UIColor {

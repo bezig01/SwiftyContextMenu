@@ -5,14 +5,24 @@
 //  Created by Mario Iannotta on 14/06/2020.
 //
 
-import Foundation
+import UIKit
 
 class ContextMenuWindow: UIWindow, ContextMenuViewControllerDelegate {
 
     private var onDismiss: (() -> Void)?
 
     init(contextMenu: ContextMenu, onDismiss: @escaping (() -> Void)) {
-        super.init(frame: UIScreen.main.bounds)
+        if #available(iOS 13.0, *) {
+            let windowScene = UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .first { $0.activationState == .foregroundActive }
+            guard let windowScene = windowScene else {
+                fatalError()
+            }
+            super.init(windowScene: windowScene)
+        } else {
+            super.init(frame: UIScreen.main.bounds)
+        }
         self.onDismiss = onDismiss
         rootViewController = ContextMenuViewController(contextMenu: contextMenu, delegate: self)
         windowLevel = UIWindow.Level.statusBar

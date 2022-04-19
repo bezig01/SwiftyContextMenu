@@ -5,6 +5,8 @@
 //  Created by Paul Bancarel on 28/11/2020.
 //
 
+import UIKit
+
 class IntensityVisualEffectView: UIVisualEffectView {
 
     private var animator: UIViewPropertyAnimator!

@@ -5,6 +5,8 @@
 //  Created by Paul Bancarel on 28/11/2020.
 //
 
+import UIKit
+
 class ContextMenuSeparatorView: UIStackView {
     var style: ContextMenuUserInterfaceStyle {
         didSet {
